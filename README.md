@@ -54,7 +54,7 @@ FTP_PATH=www/htdocs/.well-known/acme-challenge
 # メール設定
 MAIL_FROM=your-email@domain.com
 MAIL_TO=admin1@domain.com,admin2@domain.com,admin3@domain.com
-MAIL_SUBJECT=Renewal certificate files of YOUR-DOMAIN.COM
+MAIL_SUBJECT="Renewal certificate files of YOUR-DOMAIN.COM"
 
 # ドメイン設定
 DOMAIN=your-domain.com
@@ -139,7 +139,7 @@ crontab -e
 |------|------|-----|
 | `MAIL_FROM` | 送信者メールアドレス | `admin@example.com` |
 | `MAIL_TO` | 宛先メールアドレス（カンマ区切り） | `admin1@example.com,admin2@example.com` |
-| `MAIL_SUBJECT` | メール件名 | `Renewal certificate files of EXAMPLE.COM` |
+| `MAIL_SUBJECT` | メール件名 | `"証明書更新のお知らせ example.com"`<br>※スペースを含める場合はダブルクォーテーションで囲んでください |
 
 ### ドメイン設定
 
