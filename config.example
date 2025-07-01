@@ -11,7 +11,7 @@ FTP_PATH=www/htdocs/.well-known/acme-challenge
 # メール設定
 MAIL_FROM=your-email@domain.com
 MAIL_TO=admin1@domain.com,admin2@domain.com,admin3@domain.com
-MAIL_SUBJECT=Renewal certificate files of YOUR-DOMAIN.COM
+MAIL_SUBJECT="Renewal certificate files of YOUR-DOMAIN.COM"
 
 # ドメイン設定
 DOMAIN=your-domain.com

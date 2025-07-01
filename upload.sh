@@ -1,7 +1,10 @@
 #!/bin/sh
 
+# スクリプトのディレクトリを取得
+SCRIPT_DIR="$(cd "$(dirname "$0")" && pwd)"
+
 # 設定ファイルの読み込み
-test -f ./config && . ./config || { echo "config が見つかりません"; exit 1; }
+test -f $SCRIPT_DIR/config && . $SCRIPT_DIR/config || { echo "config が見つかりません"; exit 1; }
 
 # 引数チェック
 if [ $# -lt 2 ]; then

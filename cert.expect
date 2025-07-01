@@ -41,5 +41,9 @@ expect {
         send "2\n"
         exp_continue
     }
+    "\(U\)pdate key type\/\(K\)eep existing key type: " {
+        send "k\n"
+        exp_continue
+    }
 }
 exec sh $script_dir/sendmail.sh

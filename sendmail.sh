@@ -9,6 +9,7 @@ test -f $SCRIPT_DIR/config && . $SCRIPT_DIR/config || { echo "config が見つ�
 echo "From: <$MAIL_FROM>
 To: <$MAIL_TO>
 Subject: $MAIL_SUBJECT
+Content-Type: text/plain; charset=UTF-8
 
 このメールは奇数月朔日に自動配信される $DOMAIN の証明書更新メールです。
 
