@@ -17,7 +17,7 @@ Let's EncryptのSSL証明書を自動的に更新し、FTPでアップロード�
 scripts/
 ├── cert.sh          # メイン実行スクリプト
 ├── cert.expect      # expectスクリプト（対話処理）
-├── upload.sh        # FTPアップロードスクリプト
+├── upload.sh        # FTPアップロードスクリプト（アップロード完了後、アップロード元ファイルは自動的に削除されます）
 ├── sendmail.sh      # メール通知スクリプト
 ├── config           # 設定ファイル（機密情報）
 ├── config.example   # 設定ファイルテンプレート
@@ -118,7 +118,7 @@ crontab -e
 1. **cert.sh** → **cert.expect**を実行
 2. **cert.expect** → certbotで証明書更新を開始
 3. **cert.expect** → ACMEチャレンジが表示されたら**upload.sh**を実行
-4. **upload.sh** → チャレンジファイルをFTPでアップロード
+4. **upload.sh** → チャレンジファイルをFTPでアップロード（アップロード完了後、アップロード元ファイルは自動的に削除されます）
 5. **cert.expect** → 証明書更新完了後、**sendmail.sh**を実行
 6. **sendmail.sh** → 更新された証明書をメールで通知
 
