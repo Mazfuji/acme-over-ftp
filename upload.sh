@@ -21,3 +21,6 @@ echo "$TARGET_FILE" > "$FILENAME"
 
 # FTPアップロード
 echo "open $FTP_HOST\nuser $FTP_USER $FTP_PASS\ncd $FTP_PATH\nput $FILENAME $FILENAME" | ftp -n
+
+# アップロード元ファイルを削除
+rm -f "$FILENAME"
