@@ -1,0 +1,45 @@
+#!/bin/expect
+
+# スクリプトのディレクトリを取得
+set script_dir [file dirname [info script]]
+
+# configファイルからDOMAINを取得
+set config_file "$script_dir/config"
+set DOMAIN ""
+if {[file exists $config_file]} {
+    set fp [open $config_file r]
+    while {[gets $fp line] >= 0} {
+        if {[regexp {^DOMAIN=(.*)$} $line -> value]} {
+            set DOMAIN $value
+            break
+        }
+    }
+    close $fp
+}
+if {$DOMAIN eq ""} {
+    puts "configファイルからDOMAINが取得できませんでした"
+    exit 1
+}
+
+spawn sudo certbot certonly --manual -d $DOMAIN
+expect {
+    "\(Y\)es\/\(N\)o\:" {
+        send "y\n"
+        exp_continue
+    }
+    -re {([A-Za-z0-9\_\-\~]{9,})\.([A-Za-z0-9\_\-i\~]{9,})} {
+        set filename $expect_out(1,string)
+        set content $expect_out(2,string)
+        exp_continue
+    }
+    "Press Enter to Continue" {
+        exec sh $script_dir/upload.sh $filename $content
+        send "\n"
+        exp_continue
+    }
+    "\(press 'c' to cancel\)" {
+        send "2\n"
+        exp_continue
+    }
+}
+exec sh $script_dir/sendmail.sh

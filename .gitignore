@@ -1,0 +1,14 @@
+# 機密設定ファイル
+config
+
+# 一時ファイル
+*.tmp
+*.temp
+mail.txt
+
+# ログファイル
+*.log
+
+# バックアップファイル
+*.bak
+*.backup 

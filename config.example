@@ -1,0 +1,21 @@
+# ========================================
+# SSL証明書更新スクリプト設定ファイル
+# ========================================
+
+# FTP認証情報
+FTP_HOST=your-domain.com
+FTP_USER=your-username
+FTP_PASS=your-password
+FTP_PATH=www/htdocs/.well-known/acme-challenge
+
+# メール設定
+MAIL_FROM=your-email@domain.com
+MAIL_TO=admin1@domain.com,admin2@domain.com,admin3@domain.com
+MAIL_SUBJECT=Renewal certificate files of YOUR-DOMAIN.COM
+
+# ドメイン設定
+DOMAIN=your-domain.com
+LOGIN_URL=https://your-login-url.com/username/login
+
+# 証明書パス
+CERT_PATH=/etc/letsencrypt/live/your-domain.com 
